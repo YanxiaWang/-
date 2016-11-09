@@ -1,0 +1,14 @@
+//
+//  MainInfoTableViewCell.h
+//  ZLiangOffice
+//
+//  Created by wangyanxia on 2016/11/9.
+//  Copyright © 2016年 中粮. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface MainInfoTableViewCell : UITableViewCell
+@property (nonatomic , strong)UIImageView * leftImgView;
+@property (nonatomic , strong)UILabel * infoLabel;
+@end

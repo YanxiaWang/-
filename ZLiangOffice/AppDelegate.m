@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "MainViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -16,10 +19,30 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    [self initLeftSlideVC];
+    
+    
+    UINavigationController * navi = [[UINavigationController alloc]initWithRootViewController:[[LoginViewController alloc]init]];
+    
+//    self.window.rootViewController = navi;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
+-(void)initLeftSlideVC{
 
+    MainPageViewController * mainPage = [[MainPageViewController alloc]init];
+    MineViewController * mine = [[MineViewController alloc]init];
+    
+    self.LeftSlideVC = [[LeftSlideViewController alloc] initWithLeftView:mine andMainView:mainPage];
+    self.window.rootViewController = self.LeftSlideVC;
+
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
